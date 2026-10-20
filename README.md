@@ -27,8 +27,7 @@ shares the world, tool surface, and scoring with the evaluation tasks but is
 disjoint from them.
 
 Researchers who wish to evaluate a model on the held-out set can request access
-through the paper's submission system (during review) or the project's public
-release (after publication); see *Access* below.
+from the authors; see *Access* below.
 
 ## What is included / withheld
 
@@ -103,18 +102,21 @@ calibration values, anchor scores, pass thresholds, or sample scores were change
 
 ## Access to the held-out evaluation
 
-During peer review, requests can be made through the submission system. After
-publication, the public release will describe how to evaluate a model against the
-held-out set. The simulation environment and full task suite are not distributed.
+To evaluate a model against the held-out set, contact the authors listed in the
+[paper](https://arxiv.org/abs/2610.10942). The simulation environment and full
+task suite are not distributed.
 
 ## Citation
 
 ```bibtex
-@inproceedings{storebench2027,
-  title     = {StoreBench: A Live-Commerce Environment for Evaluating and Training Autonomous Operator Agents},
-  author    = {Anonymous Authors},
-  booktitle = {Under review},
-  year      = {2027}
+@misc{raghuvanshi2026storebench,
+  title={StoreBench: A Live-Commerce Environment for Evaluating and Training Autonomous Operator Agents},
+  author={Daksh Raghuvanshi and Ved Vedere and Yifan Wang},
+  year={2026},
+  eprint={2610.10942},
+  archivePrefix={arXiv},
+  primaryClass={cs.AI},
+  url={https://arxiv.org/abs/2610.10942}
 }
 ```
 

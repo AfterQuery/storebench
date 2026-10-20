@@ -5,7 +5,7 @@ Following the *Datasheets for Datasets* structure.
 ## Motivation
 
 - **Purpose.** To document StoreBench's task format, artifact schema, and grading
-  procedure, and to let reviewers independently reproduce a graded score from an
+  procedure, and to let researchers independently reproduce a graded score from an
   exported ledger without the simulation environment. It is a transparency and
   reproducibility sample, not the benchmark itself.
 - **Scope.** A representative slice of the *training* split only. The evaluation
@@ -56,9 +56,8 @@ Following the *Datasheets for Datasets* structure.
 
 ## Distribution & maintenance
 
-- Distributed as anonymized supplementary material during review; a public release
-  will follow publication. Access to the held-out evaluation is described in the
-  README.
+- Distributed publicly alongside the paper (arXiv:2610.10942). Access to the
+  held-out evaluation is described in the README.
 
 ## Ethics
 
