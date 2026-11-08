@@ -56,6 +56,27 @@ python3 regrade.py          # recomputes every trajectory's score from its ledge
 Expected: `10/10 trajectories reproduced from ledger + calibration.` No
 dependencies beyond the Python standard library (Python 3.8+).
 
+To check the layer underneath the scores (that the calibration follows from the
+anchor results shipped with it, and that every ledger is consistent with its
+task):
+
+```bash
+cd scoring
+python3 audit.py                       # 392 consistency checks over calibration, ledgers and index
+python3 -m unittest -v test_scoring    # scorer edge cases + mutation tests for the audit
+```
+
+`audit.py` recomputes each cell's zero, scale and oracle from its anchors,
+re-derives every anchor's normalized business term and composite, re-derives
+the pass threshold with the rule from Section 4.2 of the paper (midpoint of the
+two judgment anchors rounded to two decimals; when they are within twice the
+0.01 flap margin, 0.01 under the lower one) and checks gates (i) and (iv). For
+ledgers it checks reliability against the service rates, the opening capital
+(`net_assets - business_raw`) across every run and anchor of a task,
+`windows_played` against the task's horizon, and `index.json` against each
+`score.json`. The 0.01 margin and the tie test are inferred: they are the values
+under which the paper's rule reproduces all 15 released thresholds.
+
 ## Layout
 
 ```
@@ -66,6 +87,8 @@ trajectories/<task>__s<seed>__<id>/
 trajectories/index.json                 trajectory -> task, seed, reward_composite
 scoring/composite.py                    the composite scorer (0.7 business + 0.2 reliability + 0.1 continuity)
 scoring/regrade.py                      reproduce scores from ledgers + calibration
+scoring/audit.py                        check calibration and ledgers for internal consistency
+scoring/test_scoring.py                 unit and mutation tests (stdlib unittest)
 scoring/calibration.train.json          per-task-seed calibration for the released training tasks only
 docs/task_format.md                     task.toml anatomy and the scoring definition
 DATASHEET.md                            dataset documentation
